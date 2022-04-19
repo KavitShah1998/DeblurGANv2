@@ -68,6 +68,7 @@ class DeblurGANv2:
             pred = self.model(*inputs)
         return self._postprocess(pred)[:h, :w, :]
 
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('weights_path')
