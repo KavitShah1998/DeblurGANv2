@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from models.mobilenet_v2 import MobileNetV2
+from deblur_gan.models.mobilenet_v2 import MobileNetV2
 
 class FPNHead(nn.Module):
     def __init__(self, num_in, num_mid, num_out):
@@ -17,7 +17,7 @@ class FPNHead(nn.Module):
 
 class FPNMobileNet(nn.Module):
 
-    def __init__(self, norm_layer, output_ch=3, num_filters=64, num_filters_fpn=128, pretrained=True):
+    def __init__(self, norm_layer, output_ch=3, num_filters=64, num_filters_fpn=128, pretrained=False):
         super().__init__()
 
         # Feature Pyramid Network (FPN) with four feature maps of resolutions

@@ -25,16 +25,16 @@ jointly by noise, blur, compression, etc. The picture below shows the visual qua
 Inception-ResNet-v2 backbone over DeblurGAN. It is drawn from our new synthesized Restore Dataset 
 (refer to Datasets subsection below).-->
 
-![](./doc_images/kohler_visual.png)
-![](./doc_images/restore_visual.png)
-![](./doc_images/gopro_table.png)
-![](./doc_images/lai_table.png)
+![](doc_imagesohler_visual.png)
+![](doc_imagesestore_visual.png)
+![](doc_imagesopro_table.png)
+![](doc_imagesai_table.png)
 <!---![](./doc_images/dvd_table.png)-->
 <!---![](./doc_images/kohler_table.png)-->
 
 ## DeblurGAN-v2 Architecture
 
-![](./doc_images/pipeline.jpg)
+![](doc_imagesipeline.jpg)
 
 <!---Our architecture consists of an FPN backbone from which we take five final feature maps of different scales as the 
 output. Those features are later up-sampled to the same 1/4 input size and concatenated into one tensor which contains 
@@ -64,7 +64,7 @@ training script will load config under config/config.yaml
 
 #### Tensorboard visualization
 
-![](./doc_images/tensorboard2.png)
+![](doc_imagesensorboard2.png)
 
 ## Testing
 
