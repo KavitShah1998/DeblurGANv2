@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 import torch
 
-from aug import get_normalize
+from deblur_gan.aug import get_normalize
 from deblur_gan.models.networks import get_generator
 
 
