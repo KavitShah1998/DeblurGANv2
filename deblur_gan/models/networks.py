@@ -287,7 +287,8 @@ def get_generator(model_config):
     else:
         raise ValueError("Generator Network [%s] not recognized." % generator_name)
 
-    return nn.DataParallel(model_g)
+    # return nn.DataParallel(model_g)
+    return model_g
 
 
 def get_discriminator(model_config):

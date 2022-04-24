@@ -18,8 +18,14 @@ class DeblurGANv2:
                 "norm_layer": "instance"
             }
         )
-        model.load_state_dict(torch.load(weights_path)['model'])
-        self.model = model.cuda()
+        sd = torch.load(weights_path)['model']
+        model.load_state_dict(
+            {
+                k[len("module."):]: v for k, v in sd.items()
+            }
+        )
+        self.model = torch.jit.script(model.cuda())
+        # self.model = model.cuda()
         self.model.train(True)
         # GAN inference should be in train mode to use actual stats in norm layers,
         # it's not a bug
@@ -43,12 +49,8 @@ class DeblurGANv2:
         min_height = (h // block_size + 1) * block_size
         min_width = (w // block_size + 1) * block_size
 
-        pad_params = {'mode': 'constant',
-                      'constant_values': 0,
-                      'pad_width': ((0, min_height - h), (0, min_width - w), (0, 0))
-                      }
-        x = np.pad(x, **pad_params)
-        mask = np.pad(mask, **pad_params)
+        x = np.pad(x, mode='constant', constant_values=0, pad_width=((0, min_height - h), (0, min_width - w), (0, 0)))
+        mask = np.pad(mask, mode='constant', constant_values=0, pad_width=((0, min_height - h), (0, min_width - w), (0, 0)))
 
         return map(self._array_to_batch, (x, mask)), h, w
 
