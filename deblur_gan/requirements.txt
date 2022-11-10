@@ -3,12 +3,12 @@ torchvision
 torchsummary
 pretrainedmodels
 numpy
-opencv-python-headless
+opencv-python
 joblib
 albumentations>=1.0.0
 scikit-image==0.18.1
 tqdm
 glog
 tensorboardx
-fire
+# fire
 # this file is not ready yet
