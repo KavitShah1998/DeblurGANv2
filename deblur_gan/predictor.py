@@ -24,8 +24,8 @@ class DeblurGANv2:
                 k[len("module."):]: v for k, v in sd.items()
             }
         )
-        self.model = torch.jit.script(model.cuda())
-        # self.model = model.cuda()
+        # self.model = torch.jit.script(model.cuda())
+        self.model = model.cuda()
         self.model.train(True)
         # GAN inference should be in train mode to use actual stats in norm layers,
         # it's not a bug
