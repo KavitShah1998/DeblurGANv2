@@ -5,7 +5,7 @@ import torchvision.models as models
 import torchvision.transforms as transforms
 from torch.autograd import Variable
 
-from util.image_pool import ImagePool
+from deblur_gan.util.image_pool import ImagePool
 
 
 ###############################################################################

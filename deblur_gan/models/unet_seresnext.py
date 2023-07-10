@@ -3,11 +3,8 @@ from torch import nn
 import torch.nn.parallel
 import torch.optim
 import torch.utils.data
-from torch.nn import Sequential
-from collections import OrderedDict
-import torchvision
 from torch.nn import functional as F
-from models.senet import se_resnext50_32x4d
+from deblur_gan.models.senet import se_resnext50_32x4d
 
 
 def conv3x3(in_, out):
